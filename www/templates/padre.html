@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/barra_busqueda.css" rel="stylesheet" type="text/css">
+        <link href="css/styleevent.css" rel="stylesheet" type="text/css">
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src='jscript/barra_busqueda.js' ></script>
+        {% block aditionalstyles %}{% endblock %}
+
+        <link href="https://fonts.googleapis.com/css?family=Caladea&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {% block fuente %}{% endblock %}
+
+    <title>El Cucharón: {% block titulo %} Pagina principal {% endblock %}</title>
+
+    <style>
+
+    </style>
+
+    </head>
+    <body>
+        <div class="cabezon">
+            <div id = "BuscaEventos" class = "barra_busqueda">
+                <div class="barra_busqueda_input_contenedor">
+                    <input class="barra_busqueda_input" id="buscador" type="text" placeholder="Buscar evento">
+                </div>
+
+                <div id="caja_resul" class= "barra_busqueda_resultado_contenedor">                   
+                    
+                </div>
+            </div>
+
+
+            <div >
+                <a class = "nodecoration" href=index.php><h1 class = "logo">El cucharón</h1></a>
+            </div>
+            
+                <div >
+                <ul class = "espec">
+                    
+                    {% if not usuario %}
+                    <li class = "espec"><a class="cabecero" href="iniciar.php">Iniciar sesion</a></li>
+
+                    {% else %}
+                    <li class = "espec"><a class="cabecero" href="logout.php"> Cerrar Sesion</a></li>
+                    <li class = "espec"><a class="cabecero" href="perfil.php"> !Hola, {{usuario[0]}}!</a></li>
+                    {% endif %}
+                    {% if (usuario[1] == "superusuario") or (usuario[1] == "moderador")  %}                        
+                    <li class = "espec"><a class="cabecero" href="gestionComentarios.php">Gestionar comentarios</a></li>
+                    {% endif %}
+                    <li class = "espec"><a class="cabecero" href="index.php">Home</a></li>
+                    <li class = "espec"><a class="cabecero" href="#about">About</a></li>
+                    
+
+                  </ul>
+            </div>
+
+            
+
+        </div>
+
+        <div class = "total">
+            <div class="box">
+
+                <ul style="list-style-type:none;">
+                    <h3>Enlaces de interes:</h3>
+                    <li><a class="menu"href="http://www.conguitos.com/">Las recetas más sabrosas</a></li>
+                    <br>
+                    <li><a class="menu" href="http://www.conguitos.com/">Página oficial de Arguiñano</a></li>
+                    <br>
+                    <li><a class="menu" href="http://www.conguitos.com/">Libros recomendados</a></li>
+                    <br>
+                    <li><a class="menu" href="http://www.conguitos.com/">Utensilios más útiles</a></li>
+                    
+                
+                </ul> 
+                
+            </div>
+
+
+            {% block contenido %}
+
+             {% endblock %}
+        </div>
+    </div>
+
+    {% block footer %}
+    <footer>
+        <h4>Por María Sánchez Marcos - 2020</h4>
+    </footer>
+    {% endblock %}
+    </body>
+            
+</html>

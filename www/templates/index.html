@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+{% block titulo %} 
+    Portada
+{% endblock %}
+{% block contenido %}
+            <div class="wrapper">
+                {% for ev in eventos %}
+                
+                <div>
+                    <a href="evento.php?ev={{ev[0]}}">               
+                       <img class = "center" src="{{ev[2]}}"  alt="{{ev[1]}}">
+                   </a>
+            
+                    <a href="evento.php?ev={{ev[0]}}">                
+                        <h3 class = "centrar">{{ev[1]}}</h3>
+                    </a>
+                </div>
+                
+                {% endfor %}    
+            </div>  
+                
+   
+    {% endblock %}
+ 

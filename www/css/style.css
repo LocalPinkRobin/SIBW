@@ -1,0 +1,127 @@
+.total{
+    display:flex;
+    height: 100%;
+
+
+}
+.wrapper {
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 1fr;
+    grid-gap:1em;
+    margin-right: 1em;
+    margin-left: 1em;
+    height: 100%;  
+    width: 90%;
+    float: right;
+ 
+}
+
+.wrapper > div {
+    background:rgb(255, 179, 203);
+    padding: 1em;
+    display: flex;
+}
+
+.wrapper > div:nth-child(odd) {
+    background:rgb(255, 224, 234);
+}
+
+.box{
+    width: 10%;
+    float: left;
+    background:rgb(255, 210, 225);
+    padding: 1em;
+    text-align: left;
+}
+
+.cabezon {
+
+    grid-template-columns: 30% 30% 40%;
+    display: grid;
+    grid-gap:0.4em;
+    padding: 1em;
+    height: 50px;
+    margin-bottom: 0.5em;
+    background-color:rgb(252, 149, 181);
+    margin-right: 0px;
+}
+footer {
+    text-align: center;
+    padding: 1em;
+    height: 50px;
+    margin-top: 0.5em;
+    background-color:rgb(252, 149, 181);
+
+}
+h1.logo {
+    color: white;
+    font-style: italic;
+    font-family: 'Lobster', ;
+    font-size: 2em;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 15em ;
+    height: 15em;
+}
+
+
+h3.centrar {
+    padding:3em;
+    margin-bottom: 2em;
+}
+a{
+    color: rgb(255, 0, 106);
+}
+
+
+ul.espec{
+    list-style-type: none;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(252, 149, 181);
+}
+li.espec{
+    float: right;
+}
+li a.cabecero {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a.menu {
+    display: block;
+    color: rgb(36, 36, 36);
+    text-align: center;
+    padding-right: 40px;
+    text-decoration: none;
+  }
+
+li a.cabecero:hover {
+    background-color: rgb(255, 198, 216);
+}
+li a.menu:hover {
+    color: white;
+    background-color: rgb(252, 149, 181);
+  }
+
+  h4 {
+      color: white;
+  }
+  a.nodecoration{
+    text-decoration: none;
+  }

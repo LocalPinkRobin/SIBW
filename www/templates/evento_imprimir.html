@@ -1,0 +1,32 @@
+{% extends "evento.html" %}
+
+{% block aditionalstyles %} 
+    <link href="css/imprimir.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block fuente %} 
+    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet"> 
+{% endblock %}
+
+{% block titulo %} 
+    Imprimir
+{% endblock %}
+
+{% block contenido %}
+    <div>
+        <a href=index.php> <img src="imgs/indice.png"  height="100px" alt="Bombones de Chocolate"> </a>
+    </div>
+    {{parent()}}
+{% block iconos %}
+{% endblock %}
+
+{% block etiquetas %}
+{% endblock %}
+
+{% block fotos %}
+{% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "padre.html" %}
+
+{% block aditionalstyles %} 
+    <link href="css/form.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block titulo %} 
+    Gestionar Eventos
+{% endblock %}
+{% block contenido %}
+<div class = "actualizar">
+<h1>Añadir Evento</h1>
+
+<form action="subirEvento.php" method="POST" enctype="multipart/form-data">
+    Nombre del evento: <input type="text" name="nombre" required/> </br></br>
+    Organizador: <input type="text" name="organizador" required/> </br></br>
+    Lugar: <input type="text" name="lugar" required/> </br></br>
+    Contenido:<textarea rows="5" col="30" name="contenido" required></textarea><br/><br/>
+    Portada: <input type="file" name="imagen" required/><br/><br/>     
+    <input type="hidden" value='0' name="publicado"></input>
+    Publicado: <input type="checkbox" {% if ev_mod['publicado'] %} checked {% endif %} name="publicado" value='1'></input><br /><br /> 
+    <input type="submit" value="Enviar">
+</form>
+</br>
+
+<h1>Borrar Evento</h1>
+<form action="gestionEventos.php" method="POST" >
+    Evento a borrar: <input type="text" name="ev" required/> </br></br>       
+    <input type="submit" name= "boton" value="Borrar">
+    </form>
+
+</div> 
+
+<div class = "datos">
+<h1>Lista de Eventos</h1>
+{% for ev in eventos %}
+                <div>
+                    [{{ev[0]}}]  {{ev[1]}} </br> Publicado: 
+                    {% if ev[3] %}
+                    Sí
+                    {% else %}
+                    No
+                    {% endif %}
+                </div>
+{% endfor %}  
+
+<h1>Editar un evento</h1>
+
+<form action = "gestionEventos.php" method="POST">
+    Numero evento a modificar: <input type="text" name="n_evento" required/> </br></br>
+    <input type="submit" value="Modificar" name= "boton">
+</form>
+</br>
+
+{% if ev_mod %}
+<form action = "gestionEventos.php" method="POST">
+    Numero: <input type="text" name="id" value ="{{ev_mod['id']}}" required/> </br></br>
+    Nombre: <input type="text" name="nombre" value ="{{ev_mod['nombre']}}" required/> </br></br>
+    Lugar: <input type="text" name="lugar" value ="{{ev_mod['lugar']}}" required/> </br></br>
+    Organizador: <input type="text" name="organizador" value ="{{ev_mod['organizador']}}" required/> </br></br>
+    Contenido:<textarea rows="5" col="30" name="contenido" required> {{ev_mod['contenido']}} </textarea></br></br>
+    <input type="hidden" value='0' name="publicado"></input>
+    Publicado: <input type="checkbox" {% if ev_mod['publicado'] %} checked {% endif %} name="publicado" value='1'></input><br /><br /> 
+        <input type="submit" value="Actualizar" name= "boton">
+</form>
+{% endif %}
+
+
+<h1>Añadir etiqueta</h1>
+<form action = "gestionEventos.php" method="POST">
+    Etiqueta: <input type="text" name="etiqueta" required/> </br></br>
+    Numero evento: <input type="text" name="n_evento" required/> </br></br>
+    <input type="submit" value="Añadir" name= "boton">
+</form>
+
+</div>
+
+</br>
+
+
+{% endblock %}
+ 

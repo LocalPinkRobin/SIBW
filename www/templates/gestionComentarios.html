@@ -1,0 +1,43 @@
+{% extends "padre.html" %}
+
+{% block aditionalstyles %} 
+    <link href="css/form.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block titulo %} 
+    Gestionar comentarios
+{% endblock %}
+{% block contenido %}
+<div class = "actualizar">
+
+<h1>Borrar comentario</h1>
+<form action="gestionComentarios.php" method="POST" >
+Comentario a borrar: <input type="text" name="num" required/> </br></br>       
+<input type="submit" name= "boton" value="Borrar">
+</form>
+
+<h1>Editar Comentario</h1>
+<form action="gestionComentarios.php" method="POST">
+    Comentario a editar: <input type="text" name="num" required/> </br></br>       
+    Contenido: <textarea rows="5" col="30" name="texto" required></textarea> </br></br>     
+
+    <input type="submit" name= "boton" value="Editar">
+</form>
+</br>
+
+</div> 
+
+<div class = "datos">
+<h1>Lista de comentarios</h1>
+{% for c in comentarios %}
+                <div>
+                    [{{c[0]}}]   {{c[1]}}   {{c[2]}}   {{c[3]}}  </br> Evento: {{c[4]}} </br></br>
+                </div>
+{% endfor %}  
+
+</div>
+
+</br>
+
+
+{% endblock %}

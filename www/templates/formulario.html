@@ -1,0 +1,37 @@
+
+{% extends "padre.html" %}
+
+{% block aditionalstyles %} 
+    <link href="css/form.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block titulo %} 
+    Inicio Sesión
+{% endblock %}
+
+
+{% block contenido %}
+<div class = "formulario">
+        <h1>Inicio Sesion</h1>
+
+        <form action = "iniciar.php" method="POST">
+            Usuario: <input type="text" name="usuario" id="user" required/> </br></br>
+            Contraseña: <input type="password" name="pass" id="pass" required/> </br></br>
+            <input type="submit" value="Enviar">
+        </form>
+    </br>
+
+    <h1>Registro</h1>
+
+        <form action = "sesion.php" method="POST">
+            Usuario: <input type="text" name="usuario" id="user" required/> </br></br>
+            E-mail: <input type="text" name="email" id="email" required/> </br></br>
+            Contraseña: <input type="password" name="pass" id="pass" required/> </br></br>
+            <input type="submit" value="Registrarse">
+        </form>
+
+
+</div>
+                
+
+{% endblock %}

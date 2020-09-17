@@ -1,0 +1,124 @@
+{% extends "padre.html" %}
+
+{% block aditionalstyles %} 
+    <script src='jscript/script.js' type='text/javascript'></script>
+{% endblock %}
+
+
+{% block titulo %} 
+    Evento
+{% endblock %}
+
+
+{% block contenido %}
+
+                <div class = "caja">
+
+
+                    <div class="cen">
+                        <img class ="centrarimagen" src="imgs/fabada.jpg"  alt="Fabada"><p>Imagen de presentación de una fabada asturiana</p>
+
+                    </div>
+
+                    <div class="cen">
+                        <img class = "centrarimagen" src="imgs/chocoevento1.jpg"  alt="Foto de eventos anteriores"> <p>Foto de la última reunión de la asociación</p>
+                    </div>
+                    
+
+                    <h1 class ="caja">{{evento['nombre']}}</h1> 
+                    <h2 class ="caja">Organizador: {{evento['organizador']}}</h2>
+                    <h3 class ="caja">{{evento['lugar']}}.</h3>
+                    <div class = "micuadro">
+                        <p>
+                            {{evento['contenido']|raw}} 
+                        </p>
+                        {% block iconos %}
+
+                        
+                        <a class = "nodecoration" href="https://twitter.com/fabadaastur"> <img src="imgs/twitter-bird-white-on-blue.jpg"  height="50px" width= "50px" alt="twitter"> </a>
+                        <a class = "nodecoration" href="https://es-es.facebook.com/lamejorfabadadelmundo/"> <img src="imgs/Facebook-símbolo.png"  height="50px" width="50px" alt="facebook"> </a>
+                        <a class = "nodecoration" href="evento_imprimir.php?ev={{evento['id']}}"> <img src="imgs/imprimir.png"  height="50px" width="70px" alt="impresion"> </a>
+                        
+                        {% if usuario != null  %}
+
+                        <input type="button" id= "openNav" value="Dejar un comentario"/>
+
+                        {% endif %}
+
+                        {% if (usuario[1] == "superusuario") or (usuario[1] == "gestor")  %}                        
+
+                        <a href="gestionEventos.php"><input type="submit" value="Editar"></a>
+                        {% endif %}
+
+
+                        {% endblock %}
+
+                        
+                    </div>                  
+                {% block etiquetas %}
+                <h3>Etiquetas: </h3> 
+                        {% for e in etiquetas %}
+                        {{e['etiqueta']}}
+                        {% endfor %}
+                {% endblock %}
+            
+                </div>
+                
+                
+            </div>
+            
+
+                
+            {% block fotos %}
+
+            <div class = "galeria">
+                        
+                <h1>Galería:</h1>
+                </br>
+
+
+                {% for ruta in rutas %}
+                
+                <img  src="{{ruta['ruta']}}"  alt="Foto1">
+
+                {% endfor %}
+            
+            </div>
+
+       </div>
+           {% endblock %}
+
+
+       <div id = "seccion" class = "sidepanel">
+            <div>
+                <input type="button" id= "closeNav" value="Cerrar comentarios"/>
+            </br>
+            </div>
+
+            <div class ="form">
+
+                {% for com in comentarios %}
+                <div class = "commentBox">
+                    Autor: {{ com[0] }} </br></br>
+                    Fecha: {{com[1]}} </br></br>
+                    {{com[2]}}
+                </div>                               
+                {% endfor %}
+
+                <h5>Añadir comentario</h5>
+                <form action="evento.php?ev={{evento['id']}}" method ="POST">
+                    Comentario: <textarea rows="5" col="30" id="bodyText" name="comentario" onkeyup="editComment()" required></textarea><br/><br/>
+                    <input type="submit" name= "boton" id= "addComment" value="Añadir comentario"/>
+                </form>
+
+    
+    
+            </div>
+            <div id = "container">
+                
+            </div>
+
+
+       </div>
+
+{% endblock %}

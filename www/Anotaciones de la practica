@@ -1,0 +1,20 @@
+He puesto las fotos de muestra en los eventos de la fabada (5) y la tarta (2)
+He arreglado con respecto a la practica anterior, que el censurador censure por el numero de asteriscos de la palabra.
+
+El evento de fabada tiene otro texto también para ver que funciona la base de datos de la descripción de eventos,
+para que no se vean las etiquetas html he usado el tag raw
+
+Las imagenes que se toman de la base de datos son las de la galería de fotos
+
+Las tablas que he creado son:
+Imagenes: con un id, una ruta donde se almacena y el evento al que pertenece
+Evento: Con un id, nombre, organizador, lugar y contenido 
+Censuradas: Con un solo campo que es la propia palabra
+usuarios: id, pass, permisos
+etiquetas: id, etiqueta, evento
+comentario: id, autor, comentario, evento
+
+Los comentarios de prueba están en el evento 2 (bizcocho)
+
+Las fotos de los eventos no están en la base de datos, así que en todas se muestra la misma
+

@@ -1,0 +1,54 @@
+{% extends "padre.html" %}
+
+{% block aditionalstyles %} 
+    <link href="css/form.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block titulo %} 
+    Editar Perfil
+{% endblock %}
+{% block contenido %}
+<div class = "actualizar">
+    <h1>¡Actualiza tus datos!</h1>
+
+    <form action = "perfil.php" method="POST">
+        Usuario: <input type="text" name="usuario"/> </br></br>
+        E-mail: <input type="text" name="email" /> </br></br>
+        <input type="submit" value="Enviar">
+    </form>
+    </br>
+
+    {% if usuario[1] == "superusuario" %} 
+        
+    <h3>Cambiar permisos</h3>
+    <form action = "admin.php" method="POST">
+        Usuario: <input type="text" name="usuario"required/> </br></br>
+        Nuevo permiso: <input type="text" name="permiso" required/> </br></br>
+        <input type="submit" value="Enviar">
+    </form>
+    {% endif %}
+
+
+</div> 
+
+<div class = "datos">
+    {% if usuario[1] == "superusuario" %}                
+    <h1>¡Bienvenido, superusuario!</h1>
+    {% endif %}
+    
+    </br>
+    <h1>Tus datos actuales:</h1>
+        Usuario: {{usuario[0]}} </br></br>
+        E-mail: {{usuario[2]}} </br></br>
+        Rol: {{usuario[1]}}
+
+    
+
+
+</div>
+
+</br>
+
+
+{% endblock %}
+ 
